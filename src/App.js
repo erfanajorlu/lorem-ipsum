@@ -1,23 +1,22 @@
+import {useState} from 'react';
 import data from './data';
 
 function App() {
+  const [count , setCount] = useState(0);
+  const [text,setText] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="">
+      <h3>Tired Of Boring Lorem Ipsum?</h3>
+      <form>
+        <label htmlFor="lorem-input">Paragraphs :</label>
+        <input type='number' value={count}/>
+        <button>GENERATE</button>
+        {text.map((item , index)=>{
+          return <article key={index}>{item}</article>
+        })}
+      </form>
+    </section>
   );
 }
 
